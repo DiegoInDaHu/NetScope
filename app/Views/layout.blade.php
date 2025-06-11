@@ -8,42 +8,52 @@
         body {
             min-height: 100vh;
             margin: 0;
-            background-color: #001f3f;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
         }
         .btn-menu {
             background-color: #001737;
             border-color: #001737;
+            color: #fff;
         }
         .btn-menu:hover {
             background-color: #001326;
             border-color: #001326;
         }
         .offcanvas {
-            background-color: #001f3f;
+            background-color: #fff;
         }
         .offcanvas a {
-            color: #fff;
+            color: #0d6efd;
         }
         .offcanvas a:hover {
-            background-color: #001326;
+            background-color: #e9ecef;
+        }
+        .page-title {
+            color: #0d6efd;
         }
     </style>
 </head>
 <body>
 
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <button class="btn btn-menu" id="toggleMenu">&#9776;</button>
+            <span class="navbar-brand mb-0 h1 page-title">@yield('title','Dashboard')</span>
+        </div>
+    </nav>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="sidebarLabel">Navegación</h5>
+            <h5 class="offcanvas-title page-title" id="sidebarLabel">Navegación</h5>
 
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
             <ul class="nav nav-pills flex-column">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Dispositivos</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Configuración</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Dispositivos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Configuración</a></li>
             </ul>
         </div>
     </div>
@@ -52,7 +62,16 @@
         @yield('content')
     </div>
 
+    <script src="<?= base_url('vendor/components/jquery/jquery.min.js') ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            $('#toggleMenu').on('click', function () {
+                var sidebar = new bootstrap.Offcanvas('#sidebar');
+                sidebar.toggle();
+            });
+        });
+    </script>
 
 </body>
 </html>
