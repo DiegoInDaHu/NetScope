@@ -11,8 +11,12 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $device['name'] }}</h5>
                 <p class="card-text">{{ $device['ddns_hostname'] }}</p>
-                <p class="card-text">Estado: Desconocido</p>
-                <p class="card-text">Última actualización: --</p>
+                <p class="card-text">Estado:
+                    <span class="badge {{ ($device['estado'] ?? 'Offline') === 'Online' ? 'bg-success' : 'bg-danger' }}">
+                        {{ $device['estado'] ?? 'Offline' }}
+                    </span>
+                </p>
+                <p class="card-text">Última actualización: {{ $device['ultima_actualizacion'] ?? '--' }}</p>
             </div>
         </div>
     </div>

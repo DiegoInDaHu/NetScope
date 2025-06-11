@@ -21,6 +21,8 @@ CREATE TABLE IF NOT EXISTS `mikrotik_devices` (
   `api_port` INT(5) NOT NULL DEFAULT 8728,
   `username` VARCHAR(100) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `estado` VARCHAR(20) NOT NULL DEFAULT 'Offline',
+  `ultima_actualizacion` DATETIME NULL,
   `notes` TEXT NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL

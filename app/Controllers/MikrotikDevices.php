@@ -33,6 +33,8 @@ class MikrotikDevices extends BaseController
             'api_port'      => $this->request->getPost('api_port'),
             'username'      => $this->request->getPost('username'),
             'password'      => $this->request->getPost('password'),
+            'estado'        => 'Offline',
+            'ultima_actualizacion' => null,
             'notes'         => $this->request->getPost('notes'),
         ]);
         return redirect()->to('/mikrotik-devices');
