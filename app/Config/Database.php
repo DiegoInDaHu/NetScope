@@ -185,7 +185,7 @@ class Database extends Config
             'compress'     => false,
             'strictOn'     => false,
             'failover'     => [],
-            'port'         => env('database.default.port', 3306),
+            'port'         => (int) env('database.default.port', 3306),
             'numberNative' => false,
             'foundRows'    => false,
             'dateFormat'   => [
