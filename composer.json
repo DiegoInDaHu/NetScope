@@ -39,6 +39,7 @@
         "php": "^8.1",
         "codeigniter4/framework": "^4.0",
         "codeigniter4/translations": "^4.0",
+        "components/jquery": "^3.7",
         "eftec/bladeone": "^4.5",
         "twbs/bootstrap": "^5.3"
     },
