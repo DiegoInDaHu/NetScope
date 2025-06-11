@@ -23,8 +23,8 @@ class Home extends BaseController
             'ENVIRONMENT' => ENVIRONMENT,
         ];
 
-        // Render 'app/Views/welcome_message.blade.php'.
-        return $this->render('welcome_message', $data);
+        // Render 'app/Views/dashboard.blade.php'.
+        return $this->render('dashboard', $data);
     }
 
     /**
