@@ -39,8 +39,19 @@
 <body>
 
     <nav class="navbar bg-light">
-        <div class="container-fluid">
+        @php $session = session(); @endphp
+        <div class="container-fluid d-flex">
             <button class="btn btn-menu" id="toggleMenu" data-bs-toggle="offcanvas" data-bs-target="#sidebar">&#9776;</button>
+            @if($session->get('user_id'))
+                <div class="dropdown ms-auto">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ $session->get('user_name') }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="{{ base_url('/logout') }}">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            @endif
         </div>
     </nav>
 
@@ -56,7 +67,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ base_url('/') }}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ base_url('/users') }}">Usuarios</a></li>
                 @if($session->get('user_id'))
-                    <li class="nav-item"><a class="nav-link" href="{{ base_url('/logout') }}">Salir</a></li>
+                    {{-- El cierre de sesión se muestra en el encabezado --}}
                 @endif
             </ul>
         </div>
