@@ -8,36 +8,51 @@
         body {
             min-height: 100vh;
             margin: 0;
-            display: flex;
+            background-color: #001f3f;
+            color: #fff;
         }
-        .sidebar {
-            width: 200px;
-            flex-shrink: 0;
-            background-color: #f8f9fa;
+        .btn-menu {
+            background-color: #001737;
+            border-color: #001737;
         }
-        .sidebar a {
-            display: block;
-            padding: 10px 15px;
-            color: #333;
-            text-decoration: none;
+        .btn-menu:hover {
+            background-color: #001326;
+            border-color: #001326;
         }
-        .sidebar a:hover {
-            background-color: #e9ecef;
+        .offcanvas {
+            background-color: #001f3f;
         }
-        .content {
-            flex-grow: 1;
-            padding: 20px;
+        .offcanvas a {
+            color: #fff;
+        }
+        .offcanvas a:hover {
+            background-color: #001326;
         }
     </style>
 </head>
 <body>
-    <nav class="sidebar">
-        <a href="#">Inicio</a>
-        <a href="#">Dispositivos</a>
-        <a href="#">Configuración</a>
-    </nav>
-    <div class="content">
+    <button class="btn btn-menu m-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+        Menú
+    </button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">Navegación</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Dispositivos</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Configuración</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content container mt-3">
         @yield('content')
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
