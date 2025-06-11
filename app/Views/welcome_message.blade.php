@@ -26,7 +26,7 @@ Welcome to CodeIgniter 4!
 
     <p>If you would like to edit this page you will find it located at:</p>
 
-    <pre><code>app/Views/welcome_message.php</code></pre>
+    <pre><code>app/Views/welcome_message.blade.php</code></pre>
 
     <p>The corresponding controller for this page can be found at:</p>
 
