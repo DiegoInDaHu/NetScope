@@ -91,6 +91,25 @@ php spark serve
 
 See [CHANGELOG.md](./CHANGELOG.md)
 
+## Database configuration
+
+Create a `.env` file in the project root and add the following lines to enable
+the example database connection:
+
+```ini
+database.default.hostname = localhost
+database.default.database = netscopedb
+database.default.username = root
+database.default.password = terminal
+```
+
+After configuring the connection run the migrations to create the `users`
+table:
+
+```bash
+php spark migrate
+```
+
 ## Contributing
 
 Thank you for considering contributing to alternative admin. The contribution guide can be found in the [CONTRIBUTING.md](./.github/CONTRIBUTING.md).

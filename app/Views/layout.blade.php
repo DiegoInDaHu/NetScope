@@ -54,6 +54,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Dispositivos</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Configuración</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ base_url('/users') }}">Usuarios</a></li>
             </ul>
         </div>
     </div>
@@ -62,12 +63,13 @@
         @yield('content')
     </div>
 
-    <script src="<?= base_url('vendor/components/jquery/jquery.min.js') ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(function () {
-            $('#toggleMenu').on('click', function () {
-                var sidebar = new bootstrap.Offcanvas('#sidebar');
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggle = document.getElementById('toggleMenu');
+            var sidebarEl = document.getElementById('sidebar');
+            var sidebar = new bootstrap.Offcanvas(sidebarEl);
+            toggle.addEventListener('click', function () {
                 sidebar.toggle();
             });
         });
