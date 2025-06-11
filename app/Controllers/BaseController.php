@@ -92,6 +92,12 @@ abstract class BaseController extends Controller
     public function render(string $filename, array $params = []): string
     {
         try {
+            // Allow the use of "folder/file" notation similar to CodeIgniter's
+            // view() helper by converting slashes to dot notation expected by
+            // BladeOne. This lets calls such as render('users/index') resolve
+            // correctly to "users.index".
+            $filename = str_replace(['\\', '/'], '.', trim($filename));
+
             // Render the template.
             return $this->templateEngine->run($filename, $params);
         } catch (\Throwable $e) {
