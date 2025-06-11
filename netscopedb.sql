@@ -8,3 +8,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Create default admin user
+INSERT INTO `users` (`nombre`, `contrasena`, `created_at`, `updated_at`)
+VALUES ('admin', '$2y$10$YkeQuYaAzQBeT78eigFaGuSkPH8lSVyzTWNDkD3jZgcLAUUvSd/qC', NOW(), NOW());
