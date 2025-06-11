@@ -38,7 +38,7 @@
 
     <nav class="navbar bg-light">
         <div class="container-fluid">
-            <button class="btn btn-menu" id="toggleMenu">&#9776;</button>
+            <button class="btn btn-menu" id="toggleMenu" data-bs-toggle="offcanvas" data-bs-target="#sidebar">&#9776;</button>
             <span class="navbar-brand mb-0 h1 page-title">@yield('title','Dashboard')</span>
         </div>
     </nav>

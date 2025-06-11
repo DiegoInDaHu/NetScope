@@ -34,4 +34,26 @@ class Users extends BaseController
 
         return redirect()->to('/users');
     }
+
+    public function edit(int $id): string
+    {
+        $data['user'] = $this->users->find($id);
+        return $this->render('users/edit', $data);
+    }
+
+    public function update(int $id): RedirectResponse
+    {
+        $this->users->update($id, [
+            'nombre' => $this->request->getPost('nombre'),
+            'contrasena' => password_hash($this->request->getPost('contrasena'), PASSWORD_DEFAULT),
+        ]);
+
+        return redirect()->to('/users');
+    }
+
+    public function delete(int $id): RedirectResponse
+    {
+        $this->users->delete($id);
+        return redirect()->to('/users');
+    }
 }
