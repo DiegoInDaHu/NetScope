@@ -66,6 +66,7 @@
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item"><a class="nav-link" href="{{ base_url('/') }}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ base_url('/users') }}">Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ base_url('/mikrotik-devices') }}">MikroTik</a></li>
                 @if($session->get('user_id'))
                     {{-- El cierre de sesión se muestra en el encabezado --}}
                 @endif
