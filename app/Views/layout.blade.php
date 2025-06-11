@@ -29,7 +29,9 @@
         .offcanvas a:hover {
             background-color: #e9ecef;
         }
-        .page-title {
+        .sidebar-brand {
+            font-family: "Georgia", serif;
+            font-weight: bold;
             color: #0d6efd;
         }
     </style>
@@ -39,21 +41,18 @@
     <nav class="navbar bg-light">
         <div class="container-fluid">
             <button class="btn btn-menu" id="toggleMenu" data-bs-toggle="offcanvas" data-bs-target="#sidebar">&#9776;</button>
-            <span class="navbar-brand mb-0 h1 page-title">@yield('title','Dashboard')</span>
         </div>
     </nav>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title page-title" id="sidebarLabel">Navegación</h5>
+            <h5 class="offcanvas-title sidebar-brand" id="sidebarLabel">NetScope</h5>
 
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
             <ul class="nav nav-pills flex-column">
-                <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Dispositivos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Configuración</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ base_url('/') }}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ base_url('/users') }}">Usuarios</a></li>
             </ul>
         </div>
