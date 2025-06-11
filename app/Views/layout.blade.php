@@ -51,9 +51,13 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
+            @php $session = session(); @endphp
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item"><a class="nav-link" href="{{ base_url('/') }}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ base_url('/users') }}">Usuarios</a></li>
+                @if($session->get('user_id'))
+                    <li class="nav-item"><a class="nav-link" href="{{ base_url('/logout') }}">Salir</a></li>
+                @endif
             </ul>
         </div>
     </div>

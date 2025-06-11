@@ -7,6 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/example', 'Home::example');
+$routes->get('login', 'Auth::login');
+$routes->post('login', 'Auth::authenticate');
+$routes->get('logout', 'Auth::logout');
 $routes->group('users', static function ($routes) {
     $routes->get('/', 'Users::index');
     $routes->get('create', 'Users::create');
