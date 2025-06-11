@@ -15,6 +15,8 @@ class MikrotikDeviceModel extends Model
         'api_port',
         'username',
         'password',
+        'estado',
+        'ultima_actualizacion',
         'notes',
     ];
     protected $useTimestamps    = true;

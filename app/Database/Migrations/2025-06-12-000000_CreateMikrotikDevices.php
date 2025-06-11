@@ -35,6 +35,15 @@ class CreateMikrotikDevices extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
             ],
+            'estado' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 20,
+                'default'    => 'Offline',
+            ],
+            'ultima_actualizacion' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
             'notes' => [
                 'type' => 'TEXT',
                 'null' => true,
