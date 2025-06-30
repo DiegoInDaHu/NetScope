@@ -44,7 +44,7 @@
     @endphp
     <nav class="navbar bg-light">
         <div class="container-fluid d-flex">
-            @if ($uri->getPath() !== 'login')
+            @if ($session->get('user_id') && $uri->getPath() !== 'login')
                 <button class="btn btn-menu" id="toggleMenu" data-bs-toggle="offcanvas" data-bs-target="#sidebar">&#9776;</button>
             @endif
             @if($session->get('user_id'))
@@ -60,7 +60,7 @@
         </div>
     </nav>
 
-    @if ($uri->getPath() !== 'login')
+    @if ($session->get('user_id') && $uri->getPath() !== 'login')
         <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title sidebar-brand" id="sidebarLabel">NetScope</h5>
