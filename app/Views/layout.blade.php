@@ -38,10 +38,15 @@
 </head>
 <body>
 
+    @php
+        $session = session();
+        $uri     = service('uri');
+    @endphp
     <nav class="navbar bg-light">
-        @php $session = session(); @endphp
         <div class="container-fluid d-flex">
-            <button class="btn btn-menu" id="toggleMenu" data-bs-toggle="offcanvas" data-bs-target="#sidebar">&#9776;</button>
+            @if ($uri->getPath() !== 'login')
+                <button class="btn btn-menu" id="toggleMenu" data-bs-toggle="offcanvas" data-bs-target="#sidebar">&#9776;</button>
+            @endif
             @if($session->get('user_id'))
                 <div class="dropdown ms-auto">
                     <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,24 +60,26 @@
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title sidebar-brand" id="sidebarLabel">NetScope</h5>
+    @if ($uri->getPath() !== 'login')
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title sidebar-brand" id="sidebarLabel">NetScope</h5>
 
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                @php $session = session(); @endphp
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item"><a class="nav-link" href="{{ base_url('/') }}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ base_url('/users') }}">Usuarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ base_url('/mikrotik-devices') }}">MikroTik</a></li>
+                    @if($session->get('user_id'))
+                        {{-- El cierre de sesión se muestra en el encabezado --}}
+                    @endif
+                </ul>
+            </div>
         </div>
-        <div class="offcanvas-body p-0">
-            @php $session = session(); @endphp
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item"><a class="nav-link" href="{{ base_url('/') }}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ base_url('/users') }}">Usuarios</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ base_url('/mikrotik-devices') }}">MikroTik</a></li>
-                @if($session->get('user_id'))
-                    {{-- El cierre de sesión se muestra en el encabezado --}}
-                @endif
-            </ul>
-        </div>
-    </div>
+    @endif
 
     <div class="content container mt-3">
         @yield('content')
